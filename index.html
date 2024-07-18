@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legacy Roleplay</title>
+    <link rel="icon" href="https://i.postimg.cc/Mpkr9vYm/Legacyyyy-final-2.png" type="image/png">
+    <style>
+        @font-face {
+            font-family: 'Miland';
+            src: url('Miland.otf') format('opentype');
+        }
+
+        @keyframes glitch {
+            0% { clip: rect(44px, 9999px, 56px, 0); transform: skew(0.48deg); }
+            5% { clip: rect(19px, 9999px, 58px, 0); transform: skew(0.93deg); }
+            10% { clip: rect(70px, 9999px, 13px, 0); transform: skew(0.64deg); }
+            15% { clip: rect(65px, 9999px, 77px, 0); transform: skew(0.42deg); }
+            20% { clip: rect(42px, 9999px, 30px, 0); transform: skew(0.39deg); }
+            25% { clip: rect(29px, 9999px, 90px, 0); transform: skew(0.44deg); }
+            30% { clip: rect(72px, 9999px, 77px, 0); transform: skew(0.42deg); }
+            35% { clip: rect(47px, 9999px, 92px, 0); transform: skew(0.48deg); }
+            40% { clip: rect(1px, 9999px, 21px, 0); transform: skew(0.88deg); }
+            45% { clip: rect(41px, 9999px, 26px, 0); transform: skew(0.25deg); }
+            50% { clip: rect(22px, 9999px, 63px, 0); transform: skew(0.35deg); }
+            55% { clip: rect(20px, 9999px, 84px, 0); transform: skew(0.98deg); }
+            60% { clip: rect(28px, 9999px, 84px, 0); transform: skew(0.96deg); }
+            65% { clip: rect(11px, 9999px, 49px, 0); transform: skew(0.93deg); }
+            70% { clip: rect(88px, 9999px, 55px, 0); transform: skew(0.42deg); }
+            75% { clip: rect(37px, 9999px, 91px, 0); transform: skew(0.23deg); }
+            80% { clip: rect(40px, 9999px, 50px, 0); transform: skew(0.67deg); }
+            85% { clip: rect(66px, 9999px, 85px, 0); transform: skew(0.92deg); }
+            90% { clip: rect(39px, 9999px, 78px, 0); transform: skew(0.75deg); }
+            95% { clip: rect(25px, 9999px, 37px, 0); transform: skew(0.95deg); }
+            100% { clip: rect(9px, 9999px, 73px, 0); transform: skew(0.54deg); }
+        }
+
+        @keyframes glitch2 {
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, -5px); }
+            40% { transform: translate(5px, 5px); }
+            60% { transform: translate(-5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideShow {
+            0%, 33.33% { opacity: 1; }
+            33.34%, 66.66% { opacity: 0; }
+            66.67%, 100% { opacity: 1; }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #000; /* Fondo cambiado a negro */
+            padding: 10px;
+            text-align: left;
+            width: 100%;
+            position: relative;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            font-family: 'Miland', sans-serif;
+            font-size: 18px; /* Tamaño reducido */
+            font-weight: bold; /* Fuente más gruesa */
+            color: #ffd700; /* Color cambiado a dorado */
+            text-align: center;
+            padding: 10px 15px; /* Ajuste de padding */
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #000; /* Fondo cambiado a negro */
+            top: 100%;
+            left: 0;
+            width: 150px;
+            z-index: 1000;
+        }
+
+        nav ul ul li {
+            width: 100%;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul a {
+            padding: 10px 15px;
+            color: #ffd700; /* Color cambiado a dorado */
+            text-decoration: none;
+        }
+
+        nav ul ul a:hover {
+            background-color: #444;
+            color: #fff;
+        }
+
+        header {
+            background: url('https://i.postimg.cc/MKhr9dSL/image-1.png') no-repeat center center/cover;
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 2s ease-in-out;
+            width: 100%;
+        }
+
+        header img {
+            max-width: 250px; /* Reducido el tamaño del logo */
+            margin-bottom: 10px;
+            animation: glitch 1s infinite, glitch2 2s infinite alternate;
+            position: relative;
+        }
+
+        .main-content {
+            display: flex;
+            width: 80%;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-section {
+            width: 100%;
+            background-color: #000; /* Fondo cambiado a negro */
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .photo-text-section {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            overflow: hidden;
+        }
+
+        .photo-text-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .photo-text-section img.active {
+            opacity: 1;
+        }
+
+        .photo-text-section p {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            text-align: center;
+            color: #fff;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #000; /* Fondo negro */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin-bottom: 10px; /* Espacio añadido */
+        }
+
+        .footer p:nth-child(2) {
+            font-style: italic;
+        }
+
+        .donadores-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Alineación centrada horizontalmente */
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .donadores-section h2 {
+            color: #ffd700; /* Color dorado */
+        }
+
+        .donadores-list {
+            display: flex;
+            justify-content: center; /* Centrar las fotos horizontalmente */
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .donador {
+            text-align: center;
+            margin: 0 10px; /* Espacio entre las fotos */
+        }
+
+        .donador img {
+            width: 100px; /* Tamaño de las fotos */
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .donador p {
+            color: #fff;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .rectangulo {
+            width: 200px; /* Tamaño del rectángulo para los donadores */
+            height: 300px; /* Tamaño del rectángulo para los donadores */
+            background-color: #1a1a1a; /* Fondo negro */
+            margin-left: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li>
+                <a href="">Tienda</a>
+                <ul>
+                    <li><a href="peds.html">Peds</a></li>
+                    <li><a href="vehículos.html">Vehículos</a></li>
+                    <li><a href="vips.html">VIPS</a></li>
+                </ul>
+            </li>
+            <li><a href="normativa.html">Normativas</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="https://i.postimg.cc/Mpkr9vYm/Legacyyyy-final-2.png" alt="Legacy Roleplay">
+    </header>
+
+    <div class="main-content">
+        <div class="main-section">
+            <h1>Bienvenido a Legacy Roleplay</h1>
+            <p>Sumérgete en una experiencia de juego de rol inolvidable. Aquí en Legacy Roleplay, ofrecemos un mundo donde tus historias cobran vida. Únete a nosotros y forma parte de una comunidad vibrante y apasionada.</p>
+        </div>
+
+        <div class="photo-text-section">
+            <img class="active" src="https://e0.pxfuel.com/wallpapers/124/516/desktop-wallpaper-218-20210120233255-1-png-police-department-midwestrp%C2%AE-community-forum-gta-5-police.jpg" alt="VibraCity RP">
+            <img src="https://c4.wallpaperflare.com/wallpaper/569/681/116/gang-crime-gta-san-andreas-wallpaper-preview.jpg" alt="Legacy Roleplay">
+            <img src="https://wallpapercave.com/wp/wp7283107.jpg" alt="Legacy Roleplay">
+            <p>¡Bienvenido a Legacy Roleplay!</p>
+        </div>
+
+        <div class="main-section">
+            <h2>Importante</h2>
+            <p>Descubre nuestras últimas actualizaciones y eventos importantes que están por venir.</p>
+        </div>
+    </div>
+
+    <div class="donadores-section">
+        <h2>Legacy Roleplay</h2>
+        <div class="donadores-list">
+            <div class="donador">
+                <img src="https://images-ext-1.discordapp.net/external/45n79r_DI4vz4Z_HjRkxx_95hAUfc9RV-dhL8wxRPL8/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1235335172346347540/91c88aee530a2900c5e7a33a772b0172.webp?format=webp" alt="Donador 2">
+                <p>Fundador</p>
+                <p>Diego</p>
+            </div>
+            <div class="donador">
+                <img src="https://images-ext-1.discordapp.net/external/Rg51l3rO-deW-khL-SRE0zN6UseH8XCmHnym9vOoAa4/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/286553323203592202/fb4828be2a12cfde3ae48432f0547101.png?format=webp&quality=lossless&width=547&height=547" alt="Donador 3">
+                <p>Fundador/Developer</p>
+                <p>Juan</p>
+            </div>
+            <div class="donador">
+                <img src="https://images-ext-1.discordapp.net/external/AWCrj1TwdTaJ6695srK70i2Ra7Its8Jp-28qo2J7OYk/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1025811946517311630/9496cf52b28eb6dcc89576d9a6a3fce8.png?format=webp&quality=lossless" alt="Donador 4">
+                <p>Ceo/Developer</p>
+                <p>Cirotti</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Legacy Roleplay. Todos los derechos reservados.</p>
+        <p>Developed By Cirotti</p>
+    </footer>
+
+    <script>
+        // Slideshow para las fotos de eventos
+        const photos = [
+            {
+                imageUrl: 'https://e0.pxfuel.com/wallpapers/124/516/desktop-wallpaper-218-20210120233255-1-png-police-department-midwestrp%C2%AE-community-forum-gta-5-police.jpg',
+                text: 'Evento Policias vs Mafiosos'
+            },
+            {
+                imageUrl: 'https://c4.wallpaperflare.com/wallpaper/569/681/116/gang-crime-gta-san-andreas-wallpaper-preview.jpg',
+                text: 'Evento Golpe Organizaciones Delictuales'
+            },
+            {
+                imageUrl: 'https://wallpapercave.com/wp/wp7283107.jpg',
+                text: 'Evento PvP Cubito'
+            }
+        ];
+
+        let currentPhotoIndex = 0;
+        const photoText = document.querySelector('.photo-text-section p');
+        const photosSlideshow = document.querySelectorAll('.photo-text-section img');
+
+        function changePhoto() {
+            const currentIndex = currentPhotoIndex;
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            const nextIndex = currentPhotoIndex;
+            
+            photosSlideshow[currentIndex].style.opacity = 0;
+            photosSlideshow[nextIndex].style.opacity = 1;
+            
+            photoText.textContent = photos[nextIndex].text;
+        }
+
+        setInterval(changePhoto, 5000); // Cambia la foto cada 5 segundos
+    </script>
+</body>
+</html>
