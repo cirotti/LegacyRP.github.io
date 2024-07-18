@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normativa LSPD - VibraCity RP</title>
+    <link rel="icon" href="https://i.postimg.cc/Ss6Y268M/IMG-7515-Vibra-City-RP.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+            height: 80px;
+        }
+        header a {
+            color: #FFA500;
+            text-decoration: none;
+            margin-right: 1rem;
+            font-size: 0.9rem;
+        }
+        .contact-info {
+            text-align: right;
+            margin-right: 10px;
+            position: fixed;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            top: 0;
+            right: 0;
+        }
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .contact-info img {
+            width: 30px;
+            height: auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .contact-info span {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: block;
+        }
+        .dropdown-menu {
+            text-align: left;
+            margin-left: 10px;
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(28, 30, 34, 0.9);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background-color: rgba(255, 165, 0, 0.5);
+        }
+        .dropdown-menu:hover .dropdown-content {
+            display: block;
+        }
+        #logo {
+            text-align: center;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: zoomInOut 4s infinite;
+        }
+        #logo img {
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+        }
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+            }
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding-top: 160px;
+            padding-bottom: 60px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #FFA500;
+            font-size: 2.5rem;
+            margin-top: 5rem;
+        }
+        h2 {
+            color: #FFA500;
+            font-size: 1.5rem;
+        }
+        p {
+            line-height: 1.6;
+            margin-top: 0;
+        }
+        .parallax {
+            position: relative;
+            background: url('https://source.unsplash.com/random/1200x800') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            margin-bottom: 1rem;
+        }
+        footer {
+            position: fixed; /* Ajuste para mantener el footer siempre abajo */
+            bottom: 0;
+            width: 100%;
+            background: url('https://i.postimg.cc/ncNJ9616/banner-PISTOLA.gif') no-repeat center top;
+            background-size: 100% auto;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            height: 60px; /* Altura reducida del footer */
+            z-index: 10; /* Asegura que esté sobre los demás contenidos */
+        }
+        a {
+            color: #FFA500;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .image-text-container {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+        }
+        .image-left {
+            width: 50%;
+            height: auto;
+            margin-right: 2rem;
+        }
+        .text-right {
+            width: 50%;
+            margin-top: -1.5rem;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        .arrow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+        }
+        .arrow {
+            color: #FFA500;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        .arrow.disabled {
+            color: grey;
+            cursor: not-allowed;
+        }
+        .rule-text {
+            text-align: left;
+            margin-left: 2rem; /* Añadido margen izquierdo para la flecha izquierda */
+            display: none; /* Ocultar todas las partes del texto inicialmente */
+        }
+        .rule-text.active {
+            display: block; /* Mostrar la parte activa del texto */
+        }
+        .back-arrow {
+            display: block;
+            color: #FFA500;
+            font-size: 1.3rem; /* Ajustado el tamaño */
+            text-decoration: none;
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+            margin-top: -1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <header>
+        <a href="normativa.html" class="back-arrow">Volver al Home</a>
+        <div id="logo" onclick="location.href='https://discord.gg/xUyahpK2y5'">
+            <img src="https://i.postimg.cc/Ss6Y268M/IMG-7515-Vibra-City-RP.png" alt="Logo VibraCity RP">
+        </div>
+        <div class="contact-info">
+            <a href="https://discord.gg/xUyahpK2y5" target="_blank"><img src="https://i.postimg.cc/T3F72xf4/636e0a6a49cf127bf92de1e2-icon-clyde-blurple-RGB.png" alt="Discord"></a>
+            <a href="https://discord.gg/xUyahpK2y5" target="_blank">Discord</a>
+            <a href="#"><img src="https://i.postimg.cc/YChDw0KF/Five-M-Logo.png" alt="Five M"></a>
+            <span>connect cfx.re/join/p79mya</span>
+        </div>
+    </header>
+    
+    <main>
+        <h1 style="text-align: center;">Normativa EMS</h1>
+        <div class="arrow-container">
+            <div class="arrow disabled" id="prev-arrow">&larr;</div>
+            <div class="rule-text active" id="rule-text-1">
+                <p>1. Neutralidad:
+                 Los médicos siempre deben ser neutrales al momento de asistir civiles, no podrán dar ventajas a un grupo de personas por ninguna razón.</p>
+                <p>2. Actos ilícitos
+                 No se podrán cometer actos lícitos mientras se esta en servicio. Si la policía captura a un miembro de los médicos haciendo una actividad ilícita, la jefatura del hospital tiene la obligación de expulsar a este miembro.</p>
+                <p>3. Ropa:
+                 Se debe patrullar con la ropa entregada por el staff.
+                 No se podrá patrullar con pistoleras o similares. Pueden usar cinturones, pero no pueden tener armas.
+                 Esta completamente prohibido patrullar con máscaras.</p>
+                <p>4. Armas:
+                 No se podrán usar armas de fuego en servicio.</p>
+                <p>5. Normas de transito:
+                 Se deben respetar las normas de transito, excepto cuando se tenga una alerta de emergencia.</p>
+                <P>6. AFK - Ausente:
+                 Esta estrictamente prohibido estar AFK mientras esta dentro de servicio. Siempre que vaya a estar ausente, debe estar fuera de servicio.</P>
+                <P>7. Uso de vehículos:
+                 Esta prohibido tomar los vehículos del hospital para un uso personal.</P>
+            </div>
+            <div class="rule-text" id="rule-text-2">
+                <p>8. Comunicación:
+                 Es importante estar comunicados en la radio ic. La falta de comunicación podría traer graves afectaciones al rol, como por ejemplo, asistir varios médicos una misma alerta.</p>
+                <p>9. Información de los civiles - Importante:
+                 Esta prohibido difundir la información de los ciudadanos, cualquier tipo de documentos de un paciente debe estar plenamente protegido y no podrá ser expuesto a otros jugadores bajo ningún motivo. (No respetar esta norma podría acatar graves sanciones)</p>
+                <p>10. Prioridades médicas:
+                 Los médicos deben priorizar a los ciudadanos con problemas más graves, en caso de tener un civil herido y otro civil inconsciente, es necesario darle prioridad al civil inconsciente. De igual manera con roles más grandes, usted deberá priorizar a civiles abatidos por un tiroteo por encima de civiles desmayados por hambre.</p>
+                <p>11. Amiguismos / Favoritismos / MG:
+                 Esta estrictamente prohibido entrar en servicio con el único objetivo de reanimar a un amigo o conocido. Esto es gravemente sancionable.</p>
+            </div>
+            <div class="arrow" id="next-arrow">&rarr;</div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <p style="text-align: center;">© 2023 VibraCity RP. Todos los derechos reservados.</p>
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 100,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#FFA500"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "bottom",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Variables para controlar la navegación entre secciones de texto
+        let currentSection = 1;
+        const totalSections = 2; // Total de secciones de texto
+
+        const prevArrow = document.getElementById('prev-arrow');
+        const nextArrow = document.getElementById('next-arrow');
+        const ruleTexts = document.querySelectorAll('.rule-text');
+
+        // Mostrar la sección de texto actual
+        const showCurrentSection = () => {
+            ruleTexts.forEach((text, index) => {
+                if (index + 1 === currentSection) {
+                    text.classList.add('active');
+                } else {
+                    text.classList.remove('active');
+                }
+            });
+
+            // Controlar visibilidad de flechas
+            if (currentSection === 1) {
+                prevArrow.classList.add('disabled');
+            } else {
+                prevArrow.classList.remove('disabled');
+            }
+
+            if (currentSection === totalSections) {
+                nextArrow.classList.add('disabled');
+            } else {
+                nextArrow.classList.remove('disabled');
+            }
+        };
+
+        // Evento para navegar a la sección anterior
+        prevArrow.addEventListener('click', () => {
+            if (currentSection > 1) {
+                currentSection--;
+                showCurrentSection();
+            }
+        });
+
+        // Evento para navegar a la siguiente sección
+        nextArrow.addEventListener('click', () => {
+            if (currentSection < totalSections) {
+                currentSection++;
+                showCurrentSection();
+            }
+        });
+
+        // Mostrar la primera sección al cargar la página
+        showCurrentSection();
+    </script>
+</body>
+</html>
